@@ -13,7 +13,6 @@
 }
 .navItems {
   display: flex;
-
   position: relative;
 }
 .cartAmount {
@@ -21,4 +20,48 @@
   top: -15px;
   right: -10px;
   background-color: #252422;
+  padding: 4px;
+  border-radius: 5px;
+}
+.bi-cart {
+  font-size: 2rem;
+}
+/* ! main section */
+.shop {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 30px;
+}
+.items {
+  width: 220px;
+  border: 2px solid #eb5e28;
+}
+img {
+  width: 100%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+
+.price-quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantity {
+  display: flex;
+  gap: 8px;
+  font-size: 1.2rem;
+}
+.bi-dash-lg {
+  color: red;
+}
+.bi-plus {
+  color: green;
 }

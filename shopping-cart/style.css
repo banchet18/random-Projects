@@ -16,6 +16,7 @@ body {
   padding: 25px 60px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .cart {
@@ -36,4 +37,34 @@ body {
   color: white;
   padding: 3px;
   border-radius: 3px;
+}
+
+/* ! Shops items styles are here */
+
+.shop {
+  display: grid;
+  grid-template-columns: repeat(4, 223px);
+  gap: 30px;
+  justify-content: center;
+}
+
+.item {
+  border: 2px solid #212529;
+  border-radius: 4px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+.price-quantity {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
 }

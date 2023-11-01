@@ -11,6 +11,15 @@
   padding: 20px 150px;
   font-size: 1.5rem;
 }
+@media (max-width: 600px) {
+  .navbar {
+    font-size: 1rem;
+    padding: 20px 80px;
+  }
+  .bi-cart {
+    font-size: 2r;
+  }
+}
 .navItems {
   display: flex;
   position: relative;
@@ -29,6 +38,7 @@
   background-color: #ccc5b9;
   border-radius: 5px;
   padding: 4px;
+  border: 2px solid black;
 }
 /* ! main section */
 .shop {
@@ -37,6 +47,12 @@
   margin-top: 2rem;
   gap: 30px;
 }
+@media (max-width: 1000px) {
+  .shop {
+    flex-wrap: wrap;
+  }
+}
+
 .items {
   width: 220px;
   border: 2px solid #eb5e28;

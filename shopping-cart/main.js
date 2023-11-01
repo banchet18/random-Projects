@@ -30,6 +30,7 @@ let shopItemsData = [
     img: "images/img-4.jpg",
   },
 ];
+let basket = [];
 
 let generateShop = () => {
   return (shop.innerHTML = shopItemsData
@@ -43,9 +44,9 @@ let generateShop = () => {
     <div class="price-quantity">
       <h2>$ ${price}</h2>
       <div class="buttons">
-        <i class="bi bi-dash-lg"></i>
+        <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
         <div id=${id} class="quantity">0</div>
-        <i class="bi bi-plus-lg"></i>
+        <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
       </div>
     </div>
   </div>
@@ -55,3 +56,27 @@ let generateShop = () => {
 };
 
 generateShop();
+
+// ! setting id (most important)
+
+let increment = (id) => {
+  let selectedId = id;
+
+  let search = basket.find((x) => {
+    return x.id === selectedId.id;
+  });
+
+  if (search === undefined) {
+    basket.push({ id: selectedId.id, item: 1 });
+  } else {
+    search.item += 1;
+  }
+  console.log(basket);
+};
+
+// ! setting id (most important)
+let decrement = (id) => {
+  let selectedItem = id;
+  console.log(selectedItem);
+};
+let update = () => {};

@@ -25,6 +25,10 @@
 }
 .bi-cart {
   font-size: 2rem;
+  color: black;
+  background-color: #ccc5b9;
+  border-radius: 5px;
+  padding: 4px;
 }
 /* ! main section */
 .shop {

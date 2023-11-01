@@ -1,4 +1,4 @@
-/* better comment  */
+/* ! Changing default styles of the browser */
 
 * {
   margin: 0;
@@ -8,8 +8,32 @@
 body {
   font-family: sans-serif;
 }
+
+/* !Navbar style are here */
 .navbar {
   background-color: #212529;
   color: white;
   padding: 25px 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart {
+  background-color: white;
+  color: #212529;
+  padding: 5px;
+  font-size: 30px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.cartAmount {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
 }

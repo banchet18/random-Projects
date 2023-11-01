@@ -76,7 +76,17 @@ let increment = (id) => {
 
 // ! setting id (most important)
 let decrement = (id) => {
-  let selectedItem = id;
-  console.log(selectedItem);
+  let selectedId = id;
+  let search = basket.find((x) => {
+    return x.id === selectedId.id;
+  });
+  if (search) {
+    search.item -= 1;
+    // basket.push({ id: selectedId.id, item: 1 });
+  }
+  console.log(basket);
+  // else {
+  //   search.item += 1;
+  // }
 };
 let update = () => {};

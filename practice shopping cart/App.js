@@ -31,6 +31,7 @@ let shopItemsData = [
   },
 ];
 
+// JSON.parse(localStorage.getItem("data"))
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 // console.log(basket);
 
@@ -43,7 +44,6 @@ let FetchingData = () => {
         basket.find((x) => {
           return x.id === id;
         }) || [];
-      console.log(search);
 
       return `<div id=product-id-${id} class="items" >
     <img src=${img} alt="" />
@@ -56,7 +56,8 @@ let FetchingData = () => {
         <div class="button">
           <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
           <div id=${id} class="quantity">${
-        search === undefined ? 0 : search.item
+        search.item === undefined ? 0 : search.item
+        // console.log(search.item)
       }</div>
           <i onclick="increment(${id})" class="bi bi-plus"></i>
         </div>

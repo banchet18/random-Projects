@@ -32,13 +32,17 @@ let shopItemsData = [
 ];
 
 let basket = JSON.parse(localStorage.getItem("data")) || [];
+// console.log(basket);
 
 let FetchingData = () => {
   return (shop.innerHTML = shopItemsData
     .map((x) => {
       let { id, name, desc, img, price } = x;
 
-      let search = basket.find((x) => x.id === id) || [];
+      let search =
+        basket.find((x) => {
+          return x.id === id;
+        }) || [];
       console.log(search);
 
       return `<div id=product-id-${id} class="items" >
@@ -49,10 +53,10 @@ let FetchingData = () => {
 
       <div class="price-quantity">
         <h2>$ ${price}</h2>
-        <div class="quantity">
+        <div class="button">
           <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
           <div id=${id} class="quantity">${
-        search.item === undefined ? 0 : search.item
+        search === undefined ? 0 : search.item
       }</div>
           <i onclick="increment(${id})" class="bi bi-plus"></i>
         </div>

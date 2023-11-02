@@ -41,6 +41,7 @@ let generateShop = () => {
         basket.find((x) => {
           return id === x.id;
         }) || [];
+      console.log(search);
 
       return `<div id=product-id-${id}  class="item" >
   <img width="220" src=${img} alt="" />

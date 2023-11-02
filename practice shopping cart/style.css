@@ -75,7 +75,7 @@ img {
   align-items: center;
 }
 
-.quantity {
+.button {
   display: flex;
   gap: 8px;
   font-size: 1.2rem;

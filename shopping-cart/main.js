@@ -101,7 +101,9 @@ let update = (id) => {
     return id === x.id;
   });
   // console.log(search.item);
-  document.getElementById(id).innerHTML = search.item;
+  let newId = document.getElementById(id);
+  console.log(newId);
+  newId.innerHTML = search.item;
 
   calculation();
 };

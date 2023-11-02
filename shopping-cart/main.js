@@ -75,7 +75,7 @@ let increment = (id) => {
     search.item += 1;
   }
 
-  localStorage.setItem("data", JSON.stringify(basket));
+  // localStorage.setItem("data", JSON.stringify(basket));
   // console.log(basket);
   update(id.id);
 };
@@ -91,7 +91,7 @@ let decrement = (id) => {
   else {
     search.item -= 1;
   }
-  localStorage.setItem("data", JSON.stringify(basket));
+  // localStorage.setItem("data", JSON.stringify(basket));
   // console.log(basket);
   update(id.id);
 };
@@ -100,9 +100,8 @@ let update = (id) => {
   let search = basket.find((x) => {
     return id === x.id;
   });
-  // console.log(search.item);
+
   let newId = document.getElementById(id);
-  // console.log(newId);
   newId.innerHTML = search.item;
 
   calculation();
@@ -118,6 +117,7 @@ let calculation = () => {
     .reduce((x, y) => {
       return x + y;
     }, 0);
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 
 calculation();

@@ -30,7 +30,7 @@ let shopItemsData = [
     img: "images/img-4.jpg",
   },
 ];
-let basket = [];
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let generateShop = () => {
   return (shop.innerHTML = shopItemsData
@@ -70,7 +70,7 @@ let increment = (id) => {
     search.item += 1;
   }
 
-  localStorage.setItem("data", basket);
+  localStorage.setItem("data", JSON.stringify(basket));
   // console.log(basket);
   update(id.id);
 };
@@ -86,6 +86,7 @@ let decrement = (id) => {
   else {
     search.item -= 1;
   }
+  localStorage.setItem("data", JSON.stringify(basket));
   // console.log(basket);
   update(id.id);
 };

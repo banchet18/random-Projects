@@ -67,6 +67,7 @@ let increment = (id) => {
   if (search) {
     search.item += 0;
   } else {
+    basket.push({ Id: id.id, item: 0 });
   }
 };
 

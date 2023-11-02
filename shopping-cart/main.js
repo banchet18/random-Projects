@@ -60,36 +60,16 @@ generateShop();
 // ! setting id (most important)
 
 let increment = (id) => {
-  let selectedId = id;
-
   let search = basket.find((x) => {
-    return x.id === selectedId.id;
+    return id.id === x.id;
   });
 
-  if (search === undefined) {
-    basket.push({ id: selectedId.id, item: 1 });
+  if (search) {
+    search.item += 0;
   } else {
-    search.item += 1;
   }
-  console.log(basket);
 };
 
 // ! setting id (most important)
-let decrement = (id) => {
-  let selectedId = id;
-  let search = basket.find((x) => {
-    return x.id === selectedId.id;
-  });
-  if (search) {
-    search.item -= 1;
-    // basket.push({ id: selectedId.id, item: 1 });
-  }
-  if (search.item === 0) {
-    basket.pop(search);
-  }
-  console.log(basket);
-  // else {
-  //   search.item += 1;
-  // }
-};
+
 let update = () => {};

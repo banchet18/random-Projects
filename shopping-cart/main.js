@@ -63,14 +63,16 @@ let increment = (id) => {
   let search = basket.find((x) => {
     return x.id === id.id;
   });
-  console.log(search);
 
-  if (search) {
-    search.item += 1;
-  } else {
+  if (search === undefined) {
     basket.push({ id: id.id, item: 1 });
+  } else {
+    search.item += 1;
   }
-  console.log(basket);
+
+  localStorage.setItem("data", basket);
+  // console.log(basket);
+  update(id.id);
 };
 
 // ! setting id (most important)
@@ -79,12 +81,33 @@ let decrement = (id) => {
   let search = basket.find((x) => {
     return x.id === id.id;
   });
-  console.log(search);
+
   if (search.item === 0) return;
   else {
     search.item -= 1;
   }
-  console.log(basket);
+  // console.log(basket);
+  update(id.id);
 };
 
-let update = () => {};
+let update = (id) => {
+  let search = basket.find((x) => {
+    return id === x.id;
+  });
+  // console.log(search.item);
+  document.getElementById(id).innerHTML = search.item;
+
+  calculation();
+};
+
+let calculation = () => {
+  let cartIcon = document.getElementById("cartAmount");
+
+  cartIcon.innerHTML = basket
+    .map((x) => {
+      return x.item;
+    })
+    .reduce((x, y) => {
+      return x + y;
+    }, 0);
+};

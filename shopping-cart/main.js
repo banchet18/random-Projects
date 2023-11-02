@@ -41,7 +41,6 @@ let generateShop = () => {
         basket.find((x) => {
           return id === x.id;
         }) || [];
-      console.log(search);
 
       return `<div id=product-id-${id}  class="item" >
   <img width="220" src=${img} alt="" />
@@ -87,6 +86,7 @@ let increment = (id) => {
   }
   // console.log(basket);
   update(id);
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 
 let decrement = (id) => {
@@ -101,13 +101,15 @@ let decrement = (id) => {
   // ! checking after getting the search with find method is undefined or have something inside
   // ! if found something then just remove object item
 
-  if (search.item === 0) return;
-
-  if (search) {
+  if (search === undefined) return;
+  else if (search.item === 0) return;
+  else if (search) {
     search.item -= 1;
   }
   // console.log(basket);
+  basket = basket.filter((x) => x.item !== 0);
   update(id);
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 
 let update = (id) => {
@@ -120,7 +122,8 @@ let update = (id) => {
   newId.innerHTML = search.item;
   calculation();
 };
-let calculation = () => {
+
+calculation = () => {
   let cartAmount = document.getElementById("cartAmount");
   let mapReduce = basket
     .map((x) => {
@@ -131,8 +134,6 @@ let calculation = () => {
     }, 0);
 
   cartAmount.innerHTML = mapReduce;
-
-  localStorage.setItem("data", JSON.stringify(basket));
 };
 
 calculation();

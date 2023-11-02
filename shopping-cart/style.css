@@ -8,6 +8,9 @@
 body {
   font-family: sans-serif;
 }
+i {
+  cursor: pointer;
+}
 
 /* !Navbar style are here */
 .navbar {
@@ -26,7 +29,6 @@ body {
   font-size: 30px;
   border-radius: 4px;
   position: relative;
-  cursor: pointer;
 }
 
 .cartAmount {

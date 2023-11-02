@@ -57,7 +57,6 @@ let FetchingData = () => {
           <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
           <div id=${id} class="quantity">${
         search.item === undefined ? 0 : search.item
-        // console.log(search.item)
       }</div>
           <i onclick="increment(${id})" class="bi bi-plus"></i>
         </div>
@@ -73,21 +72,21 @@ FetchingData();
 let increment = (id) => {
   let selectedId = id;
   let search = basket.find((x) => {
-    return selectedId === x.id;
+    return selectedId.id === x.id;
   });
   if (search === undefined) {
-    basket.push({ id: selectedId, item: 1 });
+    basket.push({ id: selectedId.id, item: 1 });
   } else {
     search.item += 1;
   }
-  // console.log(basket);
+
   update(id);
 };
 
 let decrement = (id) => {
   let selectedId = id;
   let search = basket.find((x) => {
-    return selectedId === x.id;
+    return selectedId.id === x.id;
   });
   if (search.item === 0) return;
 
@@ -99,7 +98,7 @@ let decrement = (id) => {
 };
 let update = (id) => {
   let search = basket.find((x) => {
-    return id === x.id;
+    return id.id === x.id;
   });
 
   let newId = document.getElementById(id);

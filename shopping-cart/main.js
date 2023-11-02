@@ -61,14 +61,16 @@ generateShop();
 
 let increment = (id) => {
   let search = basket.find((x) => {
-    return id.id === x.id;
+    return x.id === id.id;
   });
+  console.log(search);
 
   if (search) {
-    search.item += 0;
+    search.item += 1;
   } else {
-    basket.push({ Id: id.id, item: 0 });
+    basket.push({ id: id.id, item: 1 });
   }
+  console.log(basket);
 };
 
 // ! setting id (most important)

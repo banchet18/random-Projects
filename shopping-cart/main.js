@@ -102,7 +102,7 @@ let update = (id) => {
   });
   // console.log(search.item);
   let newId = document.getElementById(id);
-  console.log(newId);
+  // console.log(newId);
   newId.innerHTML = search.item;
 
   calculation();

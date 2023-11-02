@@ -80,11 +80,9 @@ let decrement = (id) => {
     return x.id === id.id;
   });
   console.log(search);
-  if (search) {
+  if (search.item === 0) return;
+  else {
     search.item -= 1;
-  }
-  if (search.item === 0) {
-    basket.pop(search);
   }
   console.log(basket);
 };

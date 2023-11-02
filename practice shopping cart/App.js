@@ -1,6 +1,6 @@
-const shop = document.querySelector(".shop");
+let shop = document.getElementById("shop");
 
-const shopItemsData = [
+let shopItemsData = [
   {
     id: "123",
     name: "Casual Shirt",
@@ -31,12 +31,17 @@ const shopItemsData = [
   },
 ];
 
-const FetchingData = () => {
+let basket = JSON.parse(localStorage.getItem("data")) || [];
+
+let FetchingData = () => {
   return (shop.innerHTML = shopItemsData
     .map((x) => {
-      const { id, name, desc, img, price } = x;
+      let { id, name, desc, img, price } = x;
 
-      return `<div class="items">
+      let search = basket.find((x) => x.id === id) || [];
+      console.log(search);
+
+      return `<div id=product-id-${id} class="items" >
     <img src=${img} alt="" />
     <div class="details">
       <h3>${name}</h3>
@@ -45,9 +50,11 @@ const FetchingData = () => {
       <div class="price-quantity">
         <h2>$ ${price}</h2>
         <div class="quantity">
-          <i class="bi bi-dash-lg"></i>
-          <div>0</div>
-          <i class="bi bi-plus"></i>
+          <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
+          <div id=${id} class="quantity">${
+        search.item === undefined ? 0 : search.item
+      }</div>
+          <i onclick="increment(${id})" class="bi bi-plus"></i>
         </div>
       </div>
     </div>
@@ -57,3 +64,58 @@ const FetchingData = () => {
 };
 
 FetchingData();
+
+let increment = (id) => {
+  let selectedId = id;
+  let search = basket.find((x) => {
+    return selectedId === x.id;
+  });
+  if (search === undefined) {
+    basket.push({ id: selectedId, item: 1 });
+  } else {
+    search.item += 1;
+  }
+  // console.log(basket);
+  update(id);
+};
+
+let decrement = (id) => {
+  let selectedId = id;
+  let search = basket.find((x) => {
+    return selectedId === x.id;
+  });
+  if (search.item === 0) return;
+
+  if (search) {
+    search.item -= 1;
+  }
+  // console.log(basket);
+  update(id);
+};
+let update = (id) => {
+  let search = basket.find((x) => {
+    return id === x.id;
+  });
+
+  let newId = document.getElementById(id);
+  newId.innerHTML = search.item;
+
+  calculation();
+};
+
+let calculation = () => {
+  let mapedReduced = basket
+    .map((x) => {
+      return x.item;
+    })
+    .reduce((x, y) => {
+      return x + y;
+    }, 0);
+
+  let cartAmount = document.getElementById("cartAmount");
+  cartAmount.innerHTML = mapedReduced;
+
+  localStorage.setItem("data", JSON.stringify(basket));
+};
+
+calculation();

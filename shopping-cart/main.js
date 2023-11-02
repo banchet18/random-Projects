@@ -37,7 +37,10 @@ let generateShop = () => {
     .map((x) => {
       let { id, name, price, desc, img } = x;
 
-      let search = basket.find((x) => x.id === id) || [];
+      let search =
+        basket.find((x) => {
+          return id === x.id;
+        }) || [];
 
       return `<div id=product-id-${id}  class="item" >
   <img width="220" src=${img} alt="" />
@@ -62,61 +65,72 @@ let generateShop = () => {
 
 generateShop();
 
-// ! setting id (most important)
-
 let increment = (id) => {
-  let search = basket.find((x) => {
-    return x.id === id.id;
-  });
+  let selectedId = id;
+  // console.log(basket);
 
+  // ! finding if selected id is equal to existing basket object id
+  let search = basket.find((x) => {
+    return selectedId.id === x.id;
+  });
+  // console.log(search);
+  // console.log(basket);
+
+  // ! checking after getting the search with find method is undefined or have something inside
+  // ! if nothing found then add the new object
+  // ! if found something then just add object item
   if (search === undefined) {
-    basket.push({ id: id.id, item: 1 });
+    basket.push({ id: selectedId.id, item: 1 });
   } else {
     search.item += 1;
   }
-
-  // localStorage.setItem("data", JSON.stringify(basket));
   // console.log(basket);
-  update(id.id);
+  update(id);
 };
 
-// ! setting id (most important)
-
 let decrement = (id) => {
+  let selectedId = id;
+  // console.log(basket);
+  // ! finding if selected id is equal to existing basket object id
   let search = basket.find((x) => {
-    return x.id === id.id;
+    return selectedId.id === x.id;
   });
+  // console.log(search);
+  // console.log(basket);
+  // ! checking after getting the search with find method is undefined or have something inside
+  // ! if found something then just remove object item
 
   if (search.item === 0) return;
-  else {
+
+  if (search) {
     search.item -= 1;
   }
-  // localStorage.setItem("data", JSON.stringify(basket));
   // console.log(basket);
-  update(id.id);
+  update(id);
 };
 
 let update = (id) => {
+  let selectedId = id;
   let search = basket.find((x) => {
-    return id === x.id;
+    return selectedId.id === x.id;
   });
 
-  let newId = document.getElementById(id);
+  let newId = document.getElementById(selectedId.id);
   newId.innerHTML = search.item;
-
   calculation();
 };
-
 let calculation = () => {
-  let cartIcon = document.getElementById("cartAmount");
-
-  cartIcon.innerHTML = basket
+  let cartAmount = document.getElementById("cartAmount");
+  let mapReduce = basket
     .map((x) => {
       return x.item;
     })
     .reduce((x, y) => {
       return x + y;
     }, 0);
+
+  cartAmount.innerHTML = mapReduce;
+
   localStorage.setItem("data", JSON.stringify(basket));
 };
 

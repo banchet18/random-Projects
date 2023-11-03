@@ -130,3 +130,22 @@ a {
 }
 
 /* style rules for shopping cart */
+.cart-item {
+  display: flex;
+  justify-content: center;
+}
+.details {
+  border: 1px solid black;
+}
+.title-price-x {
+  display: flex;
+  gap: 20px;
+}
+.totalBill {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}

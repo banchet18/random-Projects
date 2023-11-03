@@ -7,7 +7,7 @@ let generateShop = () => {
     .map((x) => {
       let { id, img, name, desc, price } = x;
 
-      let search = basket.find((x) => x.id === id);
+      let search = basket.find((x) => x.id === id) || [];
 
       return `<div id=product-id-${id}  class="item" >
     <img width="220" src=${img} alt="" />
@@ -19,7 +19,7 @@ let generateShop = () => {
         <div class="buttons">
           <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
           <div id=${id} class="quantity">${
-        search === undefined ? 0 : search.item
+        search.item === undefined ? 0 : search.item
       }</div>
           <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
         </div>
@@ -94,7 +94,7 @@ let calculation = () => {
     })
     .reduce((x, y) => {
       return x + y;
-    });
+    }, 0);
 
   cartAmount.innerHTML = newCartAmount;
 };

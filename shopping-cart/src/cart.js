@@ -27,6 +27,8 @@ let generateCard = () => {
 
         let search = shopItemsData.find((y) => id === y.id) || [];
 
+        let { img, price, name } = search;
+
         return `
       <div class="cart-item">
         <img width = "100" src=${search.img} alt="" />

@@ -22,20 +22,18 @@ calculation();
 
 let generateCard = () => {
   if (basket.length !== 0) {
-    return (shoppingCart.innerHTML = basket
-      .map((x) => {
-        return `
-        <div className="cart-item">hello</div>
-        `;
-      })
-      .join(""));
+    return (shoppingCart.innerHTML = basket.map((x) => {
+      return `
+      <div>
+        hello
+      </div>;`;
+    }));
   } else {
     shoppingCart.innerHTML = `
     <h2>Cart is Empty</h2>
     <a href="indexPractice.html">
       <button class="HomeBtn">Back To Home</button>
-    </a>
-    `;
+    </a>`;
   }
 };
 

@@ -31,12 +31,12 @@ let generateCard = () => {
 
         return `
       <div class="cart-item">
-        <img width = "100" src=${search.img} alt="" />
+        <img width = "100" src=${img} alt="" />
         <div class="details">
           <div class="title-price-x">
-            <h4 class = "title-price">
-              <p>${search.name}</p>
-              <p class="cart-item-price">$ ${search.price}</p>
+            <h4 class = "title-price>
+              <p>${name}</p>
+              <p class="cart-item-price">$ ${price}</p>
             </h4>
             <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
           </div>
@@ -47,7 +47,7 @@ let generateCard = () => {
               <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
           </div>
 
-          <h3>$ ${item * search.price}</h3>
+          <h3>$ ${item * price}</h3>
         </div>
       </div>
       `;

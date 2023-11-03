@@ -22,6 +22,7 @@ a {
   padding: 25px 60px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
 }
 
@@ -52,6 +53,7 @@ a {
   grid-template-columns: repeat(4, 223px);
   gap: 30px;
   justify-content: center;
+  margin-bottom: 50px;
 }
 @media (max-width: 1000px) {
   .shop {
@@ -68,7 +70,10 @@ a {
   border: 2px solid #212529;
   border-radius: 4px;
 }
-
+.item img {
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+}
 .details {
   display: flex;
   flex-direction: column;
@@ -101,7 +106,9 @@ a {
   margin-bottom: 20px;
 }
 
-.HomeBtn {
+.HomeBtn,
+.checkout,
+.removeAll {
   background-color: #212529;
   color: white;
   border: none;
@@ -110,3 +117,16 @@ a {
   cursor: pointer;
   margin-top: 10px;
 }
+.checkout {
+  background-color: green;
+}
+.removeAll {
+  background-color: red;
+}
+
+.bi-x-lg {
+  color: red;
+  font-weight: bold;
+}
+
+/* style rules for shopping cart */

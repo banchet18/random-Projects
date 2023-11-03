@@ -20,21 +20,17 @@ let calculation = () => {
 
 calculation();
 
-let generateCard = () => {
+let generateShop = () => {
   if (basket.length !== 0) {
-    return (shoppingCart.innerHTML = basket.map((x) => {
-      return `
-      <div>
-        hello
-      </div>;`;
-    }));
   } else {
-    shoppingCart.innerHTML = `
+    shoppingCart.innerHTML = ``;
+    label.innerHTML = `
     <h2>Cart is Empty</h2>
-    <a href="indexPractice.html">
-      <button class="HomeBtn">Back To Home</button>
-    </a>`;
+<a href="indexPractice.html">
+  <button class="HomeBtn">back to home</button>
+</a>
+    `;
   }
 };
 
-generateCard();
+generateShop();

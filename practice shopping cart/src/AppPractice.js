@@ -1,11 +1,13 @@
 let shop = document.getElementById("shop");
 
-let basket = [];
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let generateShop = () => {
   return (shop.innerHTML = shopItemsData
     .map((x) => {
       let { id, img, name, desc, price } = x;
+
+      let search = basket.find((x) => x.id === id);
 
       return `<div id=product-id-${id}  class="item" >
     <img width="220" src=${img} alt="" />
@@ -16,7 +18,9 @@ let generateShop = () => {
         <h2>$ ${price}</h2>
         <div class="buttons">
           <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-          <div id=${id} class="quantity">0</div>
+          <div id=${id} class="quantity">${
+        search === undefined ? 0 : search.item
+      }</div>
           <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
         </div>
       </div>
@@ -42,6 +46,8 @@ let increment = (id) => {
 
   // updating number in + -
   update(id);
+
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 
 // step 2 -------decrement
@@ -60,6 +66,8 @@ let decrement = (id) => {
   update(id);
 
   basket = basket.filter((x) => x.item !== 0);
+
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 
 // step 3 -------update
@@ -71,8 +79,24 @@ let update = (id) => {
   let middleNumber = document.getElementById(search.id);
 
   middleNumber.innerHTML = search.item;
+
+  calculation();
 };
 
 // step 4 -------calculation
 
-let calculation = () => {};
+let calculation = () => {
+  let cartAmount = document.getElementById("cartAmount");
+
+  let newCartAmount = basket
+    .map((x) => {
+      return x.item;
+    })
+    .reduce((x, y) => {
+      return x + y;
+    });
+
+  cartAmount.innerHTML = newCartAmount;
+};
+
+calculation();

@@ -1,72 +1,79 @@
+/* ! Changing default styles of the browser */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  font-family: sans-serif;
+}
+i {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+/* !Navbar style are here */
 .navbar {
-  background-color: #eb5e28;
-  color: #ccc5b9;
+  background-color: #212529;
+  color: white;
+  padding: 25px 60px;
   display: flex;
   justify-content: space-between;
-  padding: 20px 150px;
-  font-size: 1.5rem;
+  margin-bottom: 30px;
 }
-@media (max-width: 600px) {
-  .navbar {
-    font-size: 1rem;
-    padding: 20px 80px;
-  }
-  .bi-cart {
-    font-size: 2r;
-  }
-}
-.navItems {
-  display: flex;
+
+.cart {
+  background-color: white;
+  color: #212529;
+  padding: 5px;
+  font-size: 30px;
+  border-radius: 4px;
   position: relative;
 }
+
 .cartAmount {
   position: absolute;
   top: -15px;
   right: -10px;
-  background-color: #252422;
-  padding: 4px;
-  border-radius: 5px;
-}
-.bi-cart {
-  font-size: 2rem;
-  color: black;
-  background-color: #ccc5b9;
-  border-radius: 5px;
-  padding: 4px;
-  border: 2px solid black;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
 }
 
-/* ! main section */
+/* ! Shops items styles are here */
+
 .shop {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 223px);
   gap: 30px;
+  justify-content: center;
 }
 @media (max-width: 1000px) {
   .shop {
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 223px);
+  }
+}
+@media (max-width: 500px) {
+  .shop {
+    grid-template-columns: repeat(1, 223px);
   }
 }
 
-.items {
-  width: 220px;
-  border: 2px solid #eb5e28;
-}
-img {
-  width: 100%;
+.item {
+  border: 2px solid #212529;
+  border-radius: 4px;
 }
 
 .details {
   display: flex;
   flex-direction: column;
+  padding: 10px;
   gap: 10px;
-  padding: 15px;
 }
 
 .price-quantity {
@@ -75,14 +82,31 @@ img {
   align-items: center;
 }
 
-.button {
+.buttons {
   display: flex;
   gap: 8px;
-  font-size: 1.2rem;
+  font-size: 16px;
 }
+
 .bi-dash-lg {
   color: red;
 }
-.bi-plus {
+.bi-plus-lg {
   color: green;
+}
+
+/* ! styles for label some buttons */
+.text-center {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.HomeBtn {
+  background-color: #212529;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
 }

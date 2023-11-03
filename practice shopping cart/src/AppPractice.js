@@ -1,9 +1,11 @@
 let shop = document.getElementById("shop");
 
+let basket = [];
+
 let generateShop = () => {
   return (shop.innerHTML = shopItemsData
     .map((x) => {
-      let { img, name, desc, price, id } = x;
+      let { id, img, name, desc, price } = x;
 
       return `<div id=product-id-${id}  class="item" >
     <img width="220" src=${img} alt="" />
@@ -25,3 +27,52 @@ let generateShop = () => {
 };
 
 generateShop();
+
+// step 1 -------increment
+
+let increment = (id) => {
+  let selectedId = id;
+  let search = basket.find((x) => selectedId.id === x.id);
+
+  if (search === undefined) {
+    basket.push({ id: selectedId.id, item: 1 });
+  } else {
+    search.item += 1;
+  }
+
+  // updating number in + -
+  update(id);
+};
+
+// step 2 -------decrement
+
+let decrement = (id) => {
+  let selectedId = id;
+
+  let search = basket.find((x) => selectedId.id === x.id);
+
+  if (search === undefined) return;
+  else if (search.item === 0) return;
+  else if (search) {
+    search.item -= 1;
+  }
+  // updating number in + -
+  update(id);
+
+  basket = basket.filter((x) => x.item !== 0);
+};
+
+// step 3 -------update
+let update = (id) => {
+  let selectedId = id;
+
+  let search = basket.find((x) => selectedId.id === x.id);
+
+  let middleNumber = document.getElementById(search.id);
+
+  middleNumber.innerHTML = search.item;
+};
+
+// step 4 -------calculation
+
+let calculation = () => {};

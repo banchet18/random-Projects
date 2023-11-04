@@ -2,7 +2,6 @@ let mainsection = document.getElementById("main-section");
 
 let generateLandingCart = () => {
   mainsection.innerHTML = shopItemsData.map((x) => {
-    console.log(x);
     let { id, name, price, desc, img } = x;
     return `<div id="${id}" class="one-cart">
   <img src=${img} alt="" />

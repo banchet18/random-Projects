@@ -39,3 +39,33 @@
 .main-section {
   border: 2px solid red;
 }
+.one-cart {
+  width: 200px;
+  border: 2px solid black;
+}
+.one-cart img {
+  width: 100%;
+}
+.name-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.price-quantity {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.minus-plus {
+  border: 2px solid black;
+  font-size: 25px;
+  padding: 5px;
+}

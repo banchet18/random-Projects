@@ -125,11 +125,11 @@ let totalBill = () => {
       .reduce((x, y) => {
         return x + y;
       }, 0);
-    label.innerHTML = `<div class="billcart">
+    return (label.innerHTML = `<div class="billcart1">
     <h2>total Bill : $ ${amount}</h2>
     <button>Checkout</button>
     <button onclick="clearCart()">clearCart</button>
-  </div>`;
+  </div>`);
     return;
   } else return;
 };

@@ -130,22 +130,34 @@ a {
 }
 
 /* style rules for shopping cart */
-.cart-item {
+
+.oneCart {
+  width: 300px;
+  border: 2px solid black;
   display: flex;
-  justify-content: center;
-}
-.details {
-  border: 1px solid black;
-}
-.title-price-x {
-  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
-.totalBill {
-  text-align: center;
-  align-items: center;
+
+.image {
+  width: 100px;
+}
+.name-price {
+  height: 50px;
   display: flex;
-  flex-direction: column;
   gap: 10px;
-  margin-bottom: 20px;
+  border: 2px solid red;
+}
+.minus-plus {
+  width: 300px;
+  display: flex;
+  border: 2px solid black;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.minus-plus-btn {
+  padding: 5px;
+  font-size: 20px;
 }

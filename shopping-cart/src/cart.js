@@ -4,7 +4,7 @@ let shoppingCart = document.getElementById("shopping-cart");
 
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
-calculation = () => {
+let calculation = () => {
   let cartAmount = document.getElementById("cartAmount");
   let mapReduce = basket
     .map((x) => {

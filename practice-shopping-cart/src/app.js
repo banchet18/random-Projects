@@ -39,6 +39,8 @@ let increment = (id) => {
     search.item += 1;
   }
   update(id);
+
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 // increment completed ---------------------------------------------------------------
 
@@ -68,6 +70,8 @@ let decrement = (id) => {
   if (search.item === 0) {
     basket = basket.filter((x) => x.id !== selectedId.id);
   }
+
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 // decrement completed
 

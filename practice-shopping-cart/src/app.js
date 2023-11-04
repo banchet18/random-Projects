@@ -48,6 +48,8 @@ let update = (id) => {
   let search = basket.find((x) => selectedId.id === x.id);
   let numberInsideMinusPlus = document.getElementById(selectedId.id);
   numberInsideMinusPlus.innerHTML = search.item;
+
+  calculation();
 };
 // update completed ------------------------------------------------------------------
 
@@ -69,4 +71,13 @@ let decrement = (id) => {
 };
 // decrement completed
 
-//
+// starting with nav-calculation
+
+let calculation = () => {
+  let amount = document.getElementById("amount");
+
+  let newAmount = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+
+  amount.innerHTML = newAmount;
+};
+// nav-calculation completed

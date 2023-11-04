@@ -5,7 +5,7 @@ let generateLandingCart = () => {
     console.log(x);
     let { id, name, price, desc, img } = x;
     return `<div id="${id}" class="one-cart">
-  <img src=${x.img} alt="" />
+  <img src=${img} alt="" />
   <div class="name-desc">
     <h3>${name}</h3>
     <p>${desc}</p>

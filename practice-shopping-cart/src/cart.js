@@ -14,17 +14,22 @@ let generateOneCart = () => {
         let { name, price, desc, img } = search;
 
         return `<div id="prodcuct-${id}" class="oneCartPage">
-      <img width="100" src=${img} alt="" />
-      <div class="name-desc">
+      <img  class="cartImage" src=${img} alt="" />
+      <div class="cartName">
+        <div class="name-x">
         <h3>${name}</h3>
-      </div>
-      <div class="price-quantity">
-        <h3>$ ${price}</h3>
-        <div class="quantity">
-          <button onclick="decrement(${id})" class="minus-plus">-</button>
-          <div id="${id}" class="new">${item}</div>
-          <button onclick="increment(${id})" class="minus-plus">+</button>
+        <div>X</div>
         </div>
+      
+      <div class="cart-price-quantity">
+        <h3>$ ${price}</h3>
+        
+        <div class="New-cart-quantity">
+          <button onclick="decrement(${id})" class="cart-minus-plus">-</button>
+          <div id="${id}" class="new">${item}</div>
+          <button onclick="increment(${id})" class="cart-minus-plus">+</button>
+        </div>
+      </div>
       </div>
     </div>`;
       })

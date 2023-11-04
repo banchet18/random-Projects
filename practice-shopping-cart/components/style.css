@@ -107,14 +107,45 @@ a {
 }
 
 .shoppingCart {
-  border: 2px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 25px;
+  gap: 20px;
 }
 .oneCartPage {
   border: 2px solid black;
   width: 400px;
   display: flex;
+}
+.cartName {
+  /* border: 2px solid black; */
+}
+.name-x {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  width: 290px;
+}
+
+.cart-price-quantity {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+.New-cart-quantity {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.cart-minus-plus {
+  padding: 5px;
+  font-size: 20px;
+}
+.cartImage {
+  width: 100px;
+  object-fit: cover;
 }

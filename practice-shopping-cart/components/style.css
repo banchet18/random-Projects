@@ -89,3 +89,32 @@ a {
 }
 
 /* main section compeleted-------- */
+
+/* styling cart empty page */
+.empty-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.back-btn {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.shoppingCart {
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.oneCartPage {
+  border: 2px solid black;
+  width: 400px;
+  display: flex;
+}

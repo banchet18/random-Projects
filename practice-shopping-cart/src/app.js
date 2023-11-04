@@ -54,4 +54,19 @@ let update = (id) => {
 // starting with decrement ------------------------------------------------------------
 let decrement = (id) => {
   let selectedId = id;
+
+  let search = basket.find((x) => selectedId.id === x.id);
+  if (search === undefined) return;
+  else if (search.item === 0) return;
+  else if (search) {
+    search.item -= 1;
+  }
+  update(id);
+
+  if (search.item === 0) {
+    basket = basket.filter((x) => x.id !== selectedId.id);
+  }
 };
+// decrement completed
+
+//

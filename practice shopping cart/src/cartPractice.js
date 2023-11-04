@@ -22,7 +22,7 @@ calculation();
 
 let generateCards = () => {
   if (basket.length !== 0) {
-    shoppingCart.innerHTML = basket
+    return (shoppingCart.innerHTML = basket
       .map((x) => {
         let { id, item } = x;
 
@@ -42,25 +42,60 @@ let generateCards = () => {
           </div>
       
           <div class="minus-plus">
-            <button class="minus-plus-btn">-</button>
-            <div>${item}</div>
-            <button onclick="increment(${x.id})" class="minus-plus-btn">+</button>
+            <button  onclick="decrement(${id})" class="minus-plus-btn">-</button>
+            <div id=${id}>${item}</div>
+            <button onclick="increment(${id})" class="minus-plus-btn">+</button>
           </div>
-        </div>;`;
+        </div>`;
       })
-      .join("");
+      .join(""));
   } else {
-    label.innerHTML = `<div>
+    return (label.innerHTML = `<div>
   <h2>Cart is Empty</h2>
   <a href="indexPractice.html">
   <button>back to home</button>
 </a>  
-</div>`;
+</div>`);
   }
 };
 
 generateCards();
 
 let increment = (id) => {
-  console.log("asdsad");
+  let selectedId = id;
+  let search = basket.find((x) => selectedId.id === x.id);
+
+  if (search === undefined) {
+    basket.push({ id: selectedId.id, item: 1 });
+  } else {
+    search.item += 1;
+  }
+
+  // updating number in + -
+  // update(id);
+  generateCards();
+  calculation();
+
+  localStorage.setItem("data", JSON.stringify(basket));
+};
+
+let decrement = (id) => {
+  let selectedId = id;
+
+  let search = basket.find((x) => selectedId.id === x.id);
+
+  if (search === undefined) return;
+  else if (search.item === 0) return;
+  else if (search) {
+    search.item -= 1;
+  }
+  // updating number in + -
+  // update(id);
+
+  basket = basket.filter((x) => x.item !== 0);
+
+  generateCards();
+  calculation();
+
+  localStorage.setItem("data", JSON.stringify(basket));
 };

@@ -40,6 +40,7 @@ let generateCards = () => {
             <p>${price}</p>
             <p>#</p>
           </div>
+          <div>${price * item}</div>
       
           <div class="minus-plus">
             <button  onclick="decrement(${id})" class="minus-plus-btn">-</button>
@@ -50,12 +51,13 @@ let generateCards = () => {
       })
       .join(""));
   } else {
-    return (label.innerHTML = `<div>
+    shoppingCart.innerHTML = ``;
+    label.innerHTML = `<div>
   <h2>Cart is Empty</h2>
   <a href="indexPractice.html">
   <button>back to home</button>
 </a>  
-</div>`);
+</div>`;
   }
 };
 
@@ -75,6 +77,7 @@ let increment = (id) => {
   // update(id);
   generateCards();
   calculation();
+  totalBill();
 
   localStorage.setItem("data", JSON.stringify(basket));
 };
@@ -96,6 +99,38 @@ let decrement = (id) => {
 
   generateCards();
   calculation();
+  totalBill();
 
   localStorage.setItem("data", JSON.stringify(basket));
 };
+
+let clearItem = () => {
+  basket = [];
+
+  generateCards();
+  localStorage.setItem("data", JSON.stringify(basket));
+};
+
+let totalBill = () => {
+  if (basket.length !== 0) {
+    let amount = basket
+      .map((x) => {
+        let { id, item } = x;
+
+        let search = shopItemsData.find((y) => id === y.id);
+
+        return item * search.price;
+      })
+      .reduce((x, y) => x + y, 0);
+
+    label.innerHTML = `
+    <div>
+  <h2>total Bill : $ ${amount}</h2>
+  <button>checkout</button>
+  <button onclick="clearItem()" >clear Item</button>
+</div>`;
+  } else {
+    return;
+  }
+};
+totalBill();

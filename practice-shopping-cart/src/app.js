@@ -1,14 +1,15 @@
 let mainsection = document.getElementById("main-section");
 
-let basket = [];
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let generateLandingCart = () => {
-  mainsection.innerHTML = shopItemsData.map((x) => {
-    let { id, name, price, desc, img } = x;
+  mainsection.innerHTML = shopItemsData
+    .map((x) => {
+      let { id, name, price, desc, img } = x;
 
-    let search = basket.find((x) => x) || [];
-    let { item } = search;
-    return `<div id="prodcuct-${id}" class="one-cart">
+      let search = basket.find((x) => x.id === id) || [];
+      let { item } = search;
+      return `<div id="prodcuct-${id}" class="one-cart">
   <img src=${img} alt="" />
   <div class="name-desc">
     <h3>${name}</h3>
@@ -23,7 +24,8 @@ let generateLandingCart = () => {
     </div>
   </div>
 </div>`;
-  });
+    })
+    .join("");
 };
 generateLandingCart();
 
@@ -85,3 +87,4 @@ let calculation = () => {
   amount.innerHTML = newAmount;
 };
 // nav-calculation completed
+calculation();
